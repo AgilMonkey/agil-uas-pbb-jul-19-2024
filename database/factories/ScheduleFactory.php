@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Schedule>
@@ -17,10 +18,12 @@ class ScheduleFactory extends Factory
     public function definition(): array
     {
         return [
-            'student_id' => 2,
             'subject_id' => 5,
-            'schedule_date' => fake()->dateTime(),
-            'schedule_type' => 'online',
+            'jam_mulai' => fake()->time(),
+            'jam_selesai' => fake()->time(),
+            'ruangan' => Str::random(3),
+            'tahun_akademik' => fake()->year(),
+            'semester' => rand(1, 8),
         ];
     }
 }

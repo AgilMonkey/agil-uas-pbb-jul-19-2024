@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Schedule extends Model
 {
@@ -11,11 +12,7 @@ class Schedule extends Model
 
     public function subject()
     {
-        return $this->belongsTo(Subject::class);
+        return $this->hasMany(Subject::class);
     }
 
-    public function student()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
